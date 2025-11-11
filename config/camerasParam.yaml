@@ -1,0 +1,54 @@
+# Reference Frame: Rear-axle center projected on ground
+# Vehicle/world Coordinate System: X-forward, Y-leftward, Z-upward
+# All transformation matrices are in the vehicle coordinate system, origin is the rear-axle center projected on the ground
+
+# Camera Coordinate System: X-rightward, Y-downward, Z-forward
+
+frontCamera:
+  ros__parameters:
+    # 4x4 homogeneous transformation matrix (vehicle origin to camera)
+    # Row-major format: [R11, R12, R13, Tx, R21, R22, R23, Ty, R31, R32, R33, Tz, 0.0, 0.0, 0.0, 1.0]
+    # transformation_matrix: [-2.77555756e-17, -0.270585022, 0.962696082, 1.0, -1.0, 1.94289029e-16, 0.0, 0.0, -2.22044605e-16, -0.962696082, -0.270585022, 1.513, 0.0, 0.0, 0.0, 1.0]
+    transformation_matrix: [0.01109809455, -0.2378761171, 0.9712320965, 1.029944804, -0.9995906228, -0.02825453871, 0.004501983924, 0.01212107587, 0.02637080042, -0.9708844596, -0.2380923076, 1.468194459, 0.0, 0.0, 0.0, 1.0]
+
+    # Intrinsic parameters
+    intrinsic_matrix: [774.6536281807633, 0.0, 987.610615957488, 0.0, 776.8351403236894, 592.2748935047063, 0.0, 0.0, 1.0]
+    distortion_coefficients: [-0.019489941171064756, -0.0030279815071226094, -0.0006303865899399078, 0.0000929330887373027] # fisheye distortion coefficients
+    
+    # Image properties
+    image_width: 1920
+    image_height: 1080
+    field_of_view_horizontal: 2.4435
+
+
+leftCamera:
+  ros__parameters:
+    transformation_matrix: [0.8351090556, 0.2053211945, -0.5103293764, 0.9289311288, 0.5374341161, -0.5023550703, 0.6773506877, 0.4411691716, -0.1172920975, -0.8399301105, -0.529867883, 1.53727397, 0.0, 0.0, 0.0, 1.0]
+    
+    intrinsic_matrix: [413.4459003089536, 0.0, 625.4657090067509, 0.0, 414.5602416017697, 393.99252903112915, 0.0, 0.0, 1.0]
+    distortion_coefficients: [0.2422953376828772, 0.5059306403608751, -0.48731143899233426, 0.17754105229960523] # fisheye distortion coefficients
+    
+    image_width: 1280
+    image_height: 720
+    field_of_view_horizontal: 2.0944
+
+rightCamera:
+  ros__parameters:
+    transformation_matrix: [-0.9170843316, 0.3164072049, -0.2425753685, 0.9421786652, 0.3667389584, 0.4308117056, -0.8245627997, -0.4649623728, -0.1563933025, -0.8451554621, -0.5111295138, 1.518280624, 0.0, 0.0, 0.0, 1.0]
+    
+    intrinsic_matrix: [405.08503498917514, 0.0, 642.5336288152902, 0.0, 405.38448420036235, 392.7817566891857, 0.0, 0.0, 1.0]
+    distortion_coefficients: [0.2355000728023181, 0.5192851828812787, -0.5069902243950225, 0.1963300038238199] # fisheye distortion coefficients
+    
+    image_width: 1280
+    image_height: 720
+    field_of_view_horizontal: 2.0944
+
+rearCamera:
+  ros__parameters:
+    transformation_matrix: [0.0314555296, 0.6481066313, -0.7608996939, -0.2281018547, 0.9995046515, -0.01963445825, 0.02459552252, -0.1461992394, 0.001000667974, -0.7612964485, -0.6484032049, 1.297835998, 0.0, 0.0, 0.0, 1.0]
+    intrinsic_matrix: [399.4525221314124, 0.0, 623.442668150356, 0.0, 399.77157351542655, 387.16313182015784, 0.0, 0.0, 1.0]
+    distortion_coefficients: [0.25650240662760543, 0.409502480572127, -0.32577460264349534, 0.10225059289705649] # fisheye distortion coefficients
+    
+    image_width: 1280
+    image_height: 720
+    field_of_view_horizontal: 2.0944

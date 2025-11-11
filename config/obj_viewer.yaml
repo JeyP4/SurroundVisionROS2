@@ -1,0 +1,25 @@
+obj_viewer_node:
+  ros__parameters:
+    window_title: "ROS 2 OBJ Viewer"
+    window_width: 1280
+    window_height: 720
+    field_of_view_deg: 50.0
+    model_path: "models/smartCar/smartCar.obj"
+    model_uniform_scale: 1.0
+    camera_target: [0.0, 0.5, 0.0]
+    camera_distance: 6.0
+    camera_yaw_deg: -130.0
+    camera_pitch_deg: -25.0
+    camera_min_distance: 1.5
+    camera_max_distance: 40.0
+    mouse_rotate_sensitivity: 0.25
+    mouse_pan_sensitivity: 0.002
+    scroll_zoom_sensitivity: 0.7
+    ambient_color: [0.25, 0.25, 0.28]
+    light_color: [1.0, 1.0, 1.0]
+    light_direction: [-0.4, -1.0, -0.6]
+    specular_strength: 0.8
+    shininess: 32.0
+    show_axes: true
+    axis_length: 2.0
+

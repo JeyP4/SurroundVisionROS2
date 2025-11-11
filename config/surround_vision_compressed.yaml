@@ -1,0 +1,29 @@
+surround_vision_node:
+  ros__parameters:
+    use_compressed_images: true
+    model_path: ""
+    camera_config_path: ""
+    icon_path: ""
+    windowed_x: 0
+    windowed_y: 400
+    windowed_width: 480
+    windowed_height: 400
+
+    front_camera.topic: "/frontCamera/v4l2/compressed"
+    front_camera.transport: "compressed"
+
+    left_camera.topic: "/leftCamera/v4l2/compressed"
+    left_camera.transport: "compressed"
+
+    right_camera.topic: "/rightCamera/v4l2/compressed"
+    right_camera.transport: "compressed"
+
+    rear_camera.topic: "/rearCamera/v4l2/compressed"
+    rear_camera.transport: "compressed"
+
+    inside_camera.topic: "/insideCamera/v4l2/compressed"
+    inside_camera.transport: "compressed"
+
+    ground_camera.topic: "/groundCamera/v4l2/compressed"
+    ground_camera.transport: "compressed"
+

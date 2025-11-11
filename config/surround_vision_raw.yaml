@@ -1,0 +1,28 @@
+surround_vision_node:
+  ros__parameters:
+    use_compressed_images: true
+    model_path: ""
+    camera_config_path: ""
+    icon_path: ""
+    windowed_x: 0
+    windowed_y: 400
+    windowed_width: 480
+    windowed_height: 400
+
+    front_camera.topic: "/frontCamera/image"
+    front_camera.transport: "raw"
+
+    left_camera.topic: "/leftCamera/image"
+    left_camera.transport: "raw"
+
+    right_camera.topic: "/rightCamera/image"
+    right_camera.transport: "raw"
+
+    rear_camera.topic: "/rearCamera/image"
+    rear_camera.transport: "raw"
+
+    inside_camera.topic: "/insideCamera/image"
+    inside_camera.transport: "raw"
+
+    ground_camera.topic: "/groundCamera/image"
+    ground_camera.transport: "raw"
