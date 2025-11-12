@@ -1,6 +1,6 @@
 # Surround Vision for ROS 2
 
-An open-source surround-view visualisation stack for ROS 2 Jazzy. The package fuses four fisheye cameras, renders a calibrated top-down view, and overlays a textured 3D vehicle model. It ships with a fast JPEG decoder based on libturbojpeg, a standalone OBJ inspector, and a demo bag so you can evaluate the pipeline in minutes.
+A surround-view visualisation stack for ROS 2 Jazzy. The package fuses four fisheye cameras, renders a calibrated top-down view, and overlays a textured 3D vehicle model. It ships with a fast JPEG decoder based on libturbojpeg, a standalone OBJ inspector, and a demo bag so you can evaluate the pipeline in minutes.
 
 https://github.com/user-attachments/assets/86f12873-8ef3-4b9e-bac3-4688c6c7f0d1
 
@@ -22,7 +22,7 @@ https://github.com/user-attachments/assets/86f12873-8ef3-4b9e-bac3-4688c6c7f0d1
 
 ## Sample Bag
 
-A short demo bag is included to validate the pipeline without hardware:
+A short demo bag is included to validate the pkg:
 
 ```bash
 ros2 bag info sample_bag/
@@ -44,7 +44,7 @@ Topics:            /frontCamera/v4l2/compressed
 ```bash
 # Clone into your workspace
 cd ~/ros2_ws/src
-git clone https://github.com/your-org/surround_vision.git
+git clone https://github.com/JeyP4/SurroundVisionROS2.git
 
 # Install runtime dependencies
 sudo apt update
@@ -72,7 +72,7 @@ source install/setup.bash
 ```bash
 ros2 bag play -l sample_bag
 
-Another terminal
+# Another terminal
 ros2 launch surround_vision surround_vision_rover.launch.py
 ```
 
@@ -125,7 +125,7 @@ The calibration system uses four point sets (FL, FR, RL, RR) corresponding to ov
 
 For intrinsic calibration, use standard OpenCV checkerboard methods or your preferred calibration pipeline. Replace `config/camerasParam.yaml` with your intrinsic parameters before running extrinsic calibration.
 
-## Controls (Surround Viewer & OBJ Viewer)
+## Controls (Surround Viewer)
 
 - **Left drag**: orbit around the vehicle.
 - **Right drag**: pan.
@@ -148,11 +148,11 @@ Consult `CMakeLists.txt` if you are packaging for another platform or need addit
 ## Repository Layout
 
 ```
-config/                 # YAML presets (topics, decoding modes, window defaults)
+config/                 # YAML presets (topics, window defaults, calibration points)
 camera_calibration/     # Extrinsic calibration system (see README.md inside)
 launch/                 # Minimal launch files
 models/smartCar/        # Default vehicle OBJ + textures
-sample_bag/             # Demo bag + poster video
+sample_bag/             # Demo bag
 src/
   surround_vision_node.cpp
   fast_image_republisher_optimized.cpp
