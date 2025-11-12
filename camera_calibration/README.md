@@ -96,11 +96,16 @@ The calibration system publishes several marker types for real-time visualizatio
 
 After calibration, four debug images are generated showing reprojection errors for each camera:
 
-| Front Camera | Left Camera |
-|--------------|-------------|
-| ![Front Camera Results](frontCamera_calibration_debug.jpg) | ![Rear Camera Results](rearCamera_calibration_debug.jpg) |
-| **Right Camera** | **Rear Camera** |
-| ![Right Camera Results](rightCamera_calibration_debug.jpg) | ![Left Camera Results](leftCamera_calibration_debug.jpg) |
+<table>
+<tr>
+<td align="center"><strong>Front Camera</strong><br><img src="frontCamera_calibration_debug.jpg" width="400"></td>
+<td align="center"><strong>Left Camera</strong><br><img src="leftCamera_calibration_debug.jpg" width="400"></td>
+</tr>
+<tr>
+<td align="center"><strong>Right Camera</strong><br><img src="rightCamera_calibration_debug.jpg" width="400"></td>
+<td align="center"><strong>Rear Camera</strong><br><img src="rearCamera_calibration_debug.jpg" width="400"></td>
+</tr>
+</table>
 
 **What the overlays show:**
 
