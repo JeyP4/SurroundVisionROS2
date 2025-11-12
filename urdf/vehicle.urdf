@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="vehicle">
+  <!-- 
+    Vehicle URDF for Rviz visualization
+    Coordinate System: X-forward, Y-leftward, Z-upward
+    Origin: Rear-axle center projected on ground
+  -->
+  
+  <link name="vehicle">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.57 0 0"/>
+      <geometry>
+        <mesh filename="package://surround_vision/models/smartCar/smartCar.obj"/>
+      </geometry>
+      <material name="vehicle_material">
+        <color rgba="1 1 1 0.9"/>
+      </material>
+    </visual>
+    
+  </link>
+  
+</robot>
+

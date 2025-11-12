@@ -153,7 +153,7 @@ install(TARGETS
 
 # Install launch files if any
 install(DIRECTORY
-  launch config models icons
+  launch config models icons rviz urdf camera_calibration
   DESTINATION share/${PROJECT_NAME}/
   OPTIONAL
 )

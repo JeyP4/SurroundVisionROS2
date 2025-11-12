@@ -2,7 +2,7 @@
 
 An open-source surround-view visualisation stack for ROS 2 Jazzy. The package fuses four fisheye cameras, renders a calibrated top-down view, and overlays a textured 3D vehicle model. It ships with a fast JPEG decoder based on libturbojpeg, a standalone OBJ inspector, and a demo bag so you can evaluate the pipeline in minutes.
 
-> 🎬 **Poster video:** [`sample_bag/PosterVideo.mp4`](sample_bag/PosterVideo.mp4)
+https://github.com/user-attachments/assets/86f12873-8ef3-4b9e-bac3-4688c6c7f0d1
 
 ## Highlights
 
@@ -71,6 +71,8 @@ source install/setup.bash
 
 ```bash
 ros2 bag play -l sample_bag
+
+Another terminal
 ros2 launch surround_vision surround_vision_rover.launch.py
 ```
 
@@ -103,16 +105,25 @@ ros2 launch surround_vision surround_vision_rover.launch.py \
 | Argument | Default | Description |
 |----------|---------|-------------|
 | `config` | `config/surround_vision_compressed.yaml` | Parameter file for `surround_vision_node`. |
-| `use_sim_time` | `false` | Enable simulation clock. |
-| `log_level` | `info` | ROS 2 node log level. |
 
 ## Camera Calibration
 
-Surround-view accuracy is tied to **intrinsic** and **extrinsic** calibration quality. The package assumes correct, precomputed parameters and ships a sample `config/camerasParam.yaml`. Calibration workflows (checkerboards, optimisation, etc.) are intentionally out of scope—replace this file with values from your calibration pipeline before using the system on a vehicle.
+Surround-view accuracy is tied to **intrinsic** and **extrinsic** calibration quality. This package includes a **unified marker-free calibration system** that simplifies extrinsic parameter estimation for multi-camera setups.
 
-## Poster Video
+### Extrinsic Calibration System
 
-Playback `sample_bag/PosterVideo.mp4` locally or embed it in your project page to preview the stitched surround view.
+The package includes a complete calibration workflow in `camera_calibration/` that:
+
+- **No checkerboard required**: Use simple 3D point measurements from overlapping camera FOVs
+- **Flexible and scalable**: Minimum 3 points per set, add more for better accuracy
+- **Visual validation**: Debug overlays and Rviz visualization show calibration quality
+- **Automated workflow**: Single launch command performs calibration and saves results
+
+**📖 [Detailed Calibration Guide →](camera_calibration/README.md)**
+
+The calibration system uses four point sets (FL, FR, RL, RR) corresponding to overlapping fields of view between adjacent cameras. Simply measure 3D coordinates of identifiable points and their corresponding image pixel coordinates, then run the calibration script.
+
+For intrinsic calibration, use standard OpenCV checkerboard methods or your preferred calibration pipeline. Replace `config/camerasParam.yaml` with your intrinsic parameters before running extrinsic calibration.
 
 ## Controls (Surround Viewer & OBJ Viewer)
 
@@ -138,6 +149,7 @@ Consult `CMakeLists.txt` if you are packaging for another platform or need addit
 
 ```
 config/                 # YAML presets (topics, decoding modes, window defaults)
+camera_calibration/     # Extrinsic calibration system (see README.md inside)
 launch/                 # Minimal launch files
 models/smartCar/        # Default vehicle OBJ + textures
 sample_bag/             # Demo bag + poster video

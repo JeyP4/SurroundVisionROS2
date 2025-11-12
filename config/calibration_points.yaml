@@ -1,0 +1,95 @@
+# Calibration Points Configuration
+# This file stores 3D world points and their corresponding image points for camera calibration
+# 
+# Coordinate System: X-forward, Y-leftward, Z-upward (vehicle/world frame)
+# Image points are in pixel coordinates [u, v] where u is horizontal (left to right) and v is vertical (top to bottom)
+#
+# Point Sets:
+#   - FL: Points visible in both front and left cameras
+#   - FR: Points visible in both front and right cameras
+#   - RL: Points visible in both rear and left cameras
+#   - RR: Points visible in both rear and right cameras
+#
+# Minimum: 3 points per set
+# Maximum: No limit (more points = better calibration accuracy)
+
+# World points in vehicle coordinate system [X, Y, Z] in meters
+world_points:
+  FL:
+    # Example points - replace with your measured values
+    - [1.39, 1.35, 1.22]
+    - [1.39, 1.35, 1.124]
+    - [1.39, 1.35, 1.020]
+  FR:
+    # Example points - replace with your measured values
+    - [1.53, -1.31, 1.425]
+    - [1.53, -1.31, 1.15]
+    - [1.53, -1.31, 0.91]
+  RL:
+    # Example points - replace with your measured values
+    - [-1.8, 1.47, 1.485]
+    - [-1.8, 1.47, 0.935]
+    - [-1.8, 1.47, 0.085]
+  RR:
+    # Example points - replace with your measured values
+    - [-1.8, -1.66, 1.43]
+    - [-1.8, -1.66, 0.945]
+    - [-1.8, -1.66, 0.08]
+
+# Image points in pixel coordinates [u, v] for each camera
+image_points:
+  frontCamera:
+    FL:
+      # Corresponding image points for FL world points in frontCamera
+      - [47, 676]
+      - [63, 738]
+      - [83, 801]
+    FR:
+      # Corresponding image points for FR world points in frontCamera
+      - [1895, 565]
+      - [1855, 744]
+      - [1806, 878]
+  
+  leftCamera:
+    FL:
+      # Corresponding image points for FL world points in leftCamera
+      - [1250, 329]
+      - [1214, 385]
+      - [1180, 436]
+    RL:
+      # Corresponding image points for RL world points in leftCamera
+      - [295, 196]
+      - [342, 296]
+      - [401, 413]
+  
+  rightCamera:
+    FR:
+      # Corresponding image points for FR world points in rightCamera
+      - [110, 330]
+      - [221, 464]
+      - [295, 547]
+    RR:
+      # Corresponding image points for RR world points in rightCamera
+      - [1111, 99]
+      - [1080, 212]
+      - [1028, 365]
+  
+  rearCamera:
+    RL:
+      # Corresponding image points for RL world points in rearCamera
+      - [1128, 8]
+      - [1039, 177]
+      - [934, 360]
+    RR:
+      # Corresponding image points for RR world points in rearCamera
+      - [99, 27]
+      - [187, 184]
+      - [304, 368]
+
+# Image file paths for visualization (relative to scripts directory)
+image_files:
+  frontCamera: front.jpg
+  leftCamera: left.jpg
+  rightCamera: right.jpg
+  rearCamera: rear.jpg
+
