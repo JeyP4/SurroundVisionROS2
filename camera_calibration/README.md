@@ -1,6 +1,6 @@
 # Camera Extrinsic Calibration System
 
-A unified, marker-free calibration system for multi-camera surround-view setups. Calibrate four fisheye cameras using simple 3D point measurements—no checkerboards, no complex setup, just measure points visible in overlapping camera fields of view.
+A unified, checkboard-free calibration system for four-camera surround-view setups. Calibrate four fisheye cameras using simple 3D point measurements—no checkerboards, no complex setup, just measure points visible in overlapping camera fields of view.
 
 ![Calibration Visualization](calibrationResults.jpg)
 
@@ -9,7 +9,7 @@ A unified, marker-free calibration system for multi-camera surround-view setups.
 ### ✅ **Advantages**
 
 - **No Checkerboard Required**: Skip the hassle of printing, positioning, and maintaining checkerboard patterns
-- **Flexible Measurement**: Use any clearly identifiable 3D points (corners, markers, objects) in your environment
+- **Flexible Measurement**: Use any clearly identifiable 3D points (corners, markers) in your environment
 - **Minimal Setup**: No need for a large calibration environment or precise checkerboard placement
 - **Overlapping FOV Strategy**: Leverage natural overlaps between adjacent cameras for robust calibration
 - **Scalable**: Add as many points as you want (minimum 3 per set) for improved accuracy
@@ -36,7 +36,12 @@ Identify and measure 3D coordinates (in vehicle frame) of points visible in over
 
 ### 2. **Identify Image Points**
 
-For each measured 3D point, identify its pixel coordinates `[u, v]` in the corresponding camera images.
+For each measured 3D point, identify its pixel coordinates `[u, v]` in the corresponding camera images. It can be done using any drawing and image editing tool such as 'Pinta'.
+
+Note: Keep the four images in which all the markers clearly visible in `camera_calibration` folder for further visualization of the calibration accuracy.
+```
+front.jpg, left.jpg, right.jpg, rear.jpg
+```
 
 ### 3. **Edit Configuration**
 
@@ -78,7 +83,7 @@ This will:
 
 ### 5. **Verify Results**
 
-Check the generated debug images (`*_calibration_debug.jpg`) and Rviz visualization to validate calibration quality.
+Check the generated debug images (`calibration\*_calibration_debug.jpg`) and Rviz visualization to validate calibration quality.
 
 ## Visualization
 
